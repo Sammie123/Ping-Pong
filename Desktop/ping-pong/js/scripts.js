@@ -1,25 +1,19 @@
 $(document).ready(function() {
   $("form#pingPong").submit(function(event) {
-    event.preventDefault();
-    var pingPong = $("#userInput").val()
-    var num1= parseInt(pingPong);
-
-    for ( var index = 0; index <= num1 -1; index += 1) {
-      if (num1 % 3 === 0) {
-        var num1 = num1.replace("ping");
-
-      } else if (num1 % 5 === 0) {
-        var num1 = num1.replace("pong");
-
-      } else if (num1 % 3 === 0 && num1 % 5 === 0) {
-        var num1 = num1.replace("pingpong");
-
-      } else {
-        alert("You're doing it wrong");
-
-      };
-    };
-    
+    var userNum = parseInt($("input#userInput").val());
+    for (index = 1; index <= userNum; index +=1 ) {
+      if ((index % 3 === 0) && (index % 5 === 0)) {
+        $("ul#results").append('<li>' + "pingpong" + '</li>');
+      } else
+          if (index % 5 === 0) {
+            $("ul#results").append('<li>' + "pong" + '</li>');
+          } else if (index % 3 === 0) {
+            $("ul#results").append('<li>' + "ping" + '</li>');
+          } else {
+            $("ul#results").append('<li>' + index + '</li>');
+          };
+        };
     $("#results").show();
+    event.preventDefault();
   });
 });
