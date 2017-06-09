@@ -1,3 +1,11 @@
 #results {
   display: none;
 }
+
+.jumbotron {
+  background-color: maroon;
+  color: white;
+}
+body {
+  background-color: grey;
+}
